@@ -895,12 +895,55 @@ if (!$result) {
   echo "<th>COUNTRY</th>";
   echo"<th>STATE</th>";
   echo "</tr>";
-  
+  <!--Rotating card-->
+<div class="card-wrapper">
+    <div id="card-1" class="card-rotating effect__click">
+
+        <!--Front Side-->
+        <div class="face front">
+
+            <!-- Image-->
+            <div class="card-up">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2859%29.jpg" class="img-fluid">
+            </div>
+            <!--Avatar-->
+            <div class="avatar"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%289%29.jpg" class="rounded-circle img-responsive">
+            </div>
+            <!--Content-->
+            <div class="card-block">
+                while ($row = pg_fetch_row($result)) {
+  echo "<tr>";
+  echo "<td>$row[0]</td>". "<td>$row[2]</td>";
+  echo "</tr>";
+}
+
+                <!--Triggering button-->
+                <a class="rotate-btn" data-card="card-1"><i class="fa fa-repeat"></i> Click here to rotate</a>
+            </div>
+        </div>
+        <!--/.Front Side-->
+
+        <!--Back Side-->
+        <div class="face back">
+
+            <!--Content-->
+            <h4>About me</h4>
+            <hr>
+            <!--Record details--> <p>
 while ($row = pg_fetch_row($result)) {
   echo "<tr>";
   echo "<td>$row[0]</td>". "<td>$row[1]</td>". "<td>$row[2]</td>". "<td>$row[3]</td>". "<td>$row[4]</td>". "<td>$row[5]</td>". "<td>$row[6]</td>". "<td>$row[7]</td>";
   echo "</tr>";
-}
+} </p><hr>
+            <!--Triggering button-->
+            <a class="rotate-btn" data-card="card-1"><i class="fa fa-undo"></i> Click here to rotate back</a>
+
+        </div>
+        <!--/.Back Side-->
+
+    </div>
+</div>
+<!--/.Rotating card-->      
   echo "</table>";
   echo "</div>";
   echo"</div>";
